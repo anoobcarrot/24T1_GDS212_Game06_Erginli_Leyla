@@ -7,11 +7,15 @@ public class PersonalityTrait
 {
     public string name;
     public int value;
+    public bool affectsMorality;
+    public bool affectsFriendship;
 
-    public PersonalityTrait(string _name, int _value)
+    public PersonalityTrait(string _name, int _value, bool _affectsMorality, bool _affectsFriendship)
     {
         name = _name;
         value = _value;
+        affectsMorality = _affectsMorality;
+        affectsFriendship = _affectsFriendship;
     }
 }
 
@@ -54,6 +58,16 @@ public class MoralityFriendshipManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Update()
+    {
+        // Loop through companions and log their morality and friendship values
+        foreach (Companion companion in companions)
+        {
+            // Debug.Log("Current morality value for " + companion.name + ": " + companion.morality);
+            // Debug.Log("Current friendship value for " + companion.name + ": " + companion.friendship);
+        }
+    }
+
     // Method to add a new companion
     public void AddCompanion(string name, GameObject gameObject, PersonalityTrait[] personalityTraits, List<Dialogue> dialogues)
     {
@@ -64,15 +78,25 @@ public class MoralityFriendshipManager : MonoBehaviour
         companions.Add(newCompanion);
     }
 
-    // Method to modify morality for a specific companion
-    public void ModifyMorality(string companionName, int amount)
+    // Method to modify morality for a specific companion with consideration of the trait name
+    public void ModifyMorality(string companionName, int amount, string traitName)
     {
         Companion companion = companions.Find(comp => comp.name == companionName);
 
         if (companion != null)
         {
-            int moralityChange = CalculateTraitValue(companion.personalityTraits) * amount;
-            Debug.Log("Morality change for " + companionName + ": " + moralityChange);
+            PersonalityTrait trait = Array.Find(companion.personalityTraits, t => t.name == traitName);
+            if (trait != null && trait.affectsMorality)
+            {
+                int traitValue = trait.value;
+                companion.morality = Mathf.Clamp(companion.morality + amount + traitValue, 0, 100);
+                Debug.Log("Morality change for " + companionName + " with trait " + traitName + ": " + amount);
+                Debug.Log("New morality value for " + companionName + ": " + companion.morality);
+            }
+            else
+            {
+                Debug.LogError("Trait not found or does not affect morality: " + traitName);
+            }
         }
         else
         {
@@ -80,15 +104,25 @@ public class MoralityFriendshipManager : MonoBehaviour
         }
     }
 
-    // Method to modify friendship for a specific companion
-    public void ModifyFriendship(string companionName, int amount)
+    // Method to modify friendship for a specific companion with consideration of the trait name
+    public void ModifyFriendship(string companionName, int amount, string traitName)
     {
         Companion companion = companions.Find(comp => comp.name == companionName);
 
         if (companion != null)
         {
-            int friendshipChange = CalculateTraitValue(companion.personalityTraits) * amount;
-            Debug.Log("Friendship change for " + companionName + ": " + friendshipChange);
+            PersonalityTrait trait = Array.Find(companion.personalityTraits, t => t.name == traitName);
+            if (trait != null && trait.affectsFriendship)
+            {
+                int traitValue = trait.value;
+                companion.friendship = Mathf.Clamp(companion.friendship + amount + traitValue, 0, 100);
+                Debug.Log("Friendship change for " + companionName + " with trait " + traitName + ": " + amount);
+                Debug.Log("New friendship value for " + companionName + ": " + companion.friendship);
+            }
+            else
+            {
+                Debug.LogError("Trait not found or does not affect friendship: " + traitName);
+            }
         }
         else
         {

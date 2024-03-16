@@ -17,6 +17,13 @@ public class DialogueOption
 {
     public string optionText;
     public DialogueOptionType optionType;
+    public string traitName;
+    public bool applyMoralityChangePositive;
+    public bool applyMoralityChangeNegative;
+    public bool applyFriendshipChangePositive;
+    public bool applyFriendshipChangeNegative;
+    public int moralityChange; // Amount of morality change
+    public int friendshipChange; // Amount of friendship change
 }
 
 [System.Serializable]
@@ -58,42 +65,50 @@ public class CompanionDialogue : MonoBehaviour
 
     private MoralityFriendshipManager moralityFriendshipManager;
     private Dialogue currentDialogue;
+    [SerializeField] private bool isDialogueShowing = false; // Flag to track whether a dialogue is currently being displayed
 
     void Start()
     {
         moralityFriendshipManager = MoralityFriendshipManager.instance;
         StartCoroutine(ShowRandomDialogueRoutine());
+        isDialogueShowing = false;
     }
 
     IEnumerator ShowRandomDialogueRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(30f);
-            ShowRandomDialogue();
+            // Only start a new dialogue if no dialogue is currently showing
+            if (!isDialogueShowing)
+            {
+                yield return new WaitForSeconds(30f);
+                ShowRandomDialogue();
+            }
+            yield return null; // Wait for next frame
         }
     }
 
     void ShowRandomDialogue()
-{
-    if (dialogues.Count == 0)
     {
-        Debug.LogError("No dialogues available.");
-        return;
+        if (dialogues.Count == 0)
+        {
+            Debug.LogError("No dialogues available.");
+            return;
+        }
+
+        isDialogueShowing = true;
+        int randomIndex = Random.Range(0, dialogues.Count);
+        currentDialogue = dialogues[randomIndex];
+        dialogues.RemoveAt(randomIndex); // Remove the selected dialogue from the list
+        ShowDialogue(currentDialogue, true); // Initially show dialogue with options
     }
 
-    int randomIndex = Random.Range(0, dialogues.Count);
-    currentDialogue = dialogues[randomIndex];
-    dialogues.RemoveAt(randomIndex); // Remove the selected dialogue from the list
-    ShowDialogue(currentDialogue, true); // Initially show dialogue with options
-}
-
     void ShowDialogue(Dialogue dialogue, bool showOptions)
-{
-    dialogueText.text = ""; // Clear existing text
-    dialogueBoxImage.gameObject.SetActive(true); // Show the dialogue box immediately
-    StartCoroutine(AnimateText(dialogue.text, showOptions)); // Start text animation after a short delay
-}
+    {
+        dialogueText.text = ""; // Clear existing text
+        dialogueBoxImage.gameObject.SetActive(true); // Show the dialogue box immediately
+        StartCoroutine(AnimateText(dialogue.text, showOptions)); // Start text animation after a short delay
+    }
 
     IEnumerator AnimateText(string text, bool showOptions)
     {
@@ -125,29 +140,41 @@ public class CompanionDialogue : MonoBehaviour
     }
 
     void PresentDialogueOptions(List<DialogueOption> options)
-{
-    float buttonHeight = optionButtonPrefab.GetComponent<RectTransform>().rect.height;
-    float verticalSpacing = 10f; // Adjust this value to control the spacing between buttons
-
-    for (int i = 0; i < options.Count; i++)
     {
-        GameObject buttonGO = Instantiate(optionButtonPrefab, optionButtonParent);
-        Button button = buttonGO.GetComponent<Button>();
-        int index = i;
-        button.onClick.AddListener(() => PlayerChoice(options[index]));
-        button.GetComponentInChildren<TextMeshProUGUI>().text = options[i].optionText;
+        float buttonHeight = optionButtonPrefab.GetComponent<RectTransform>().rect.height;
+        float verticalSpacing = 10f; // Adjust this value to control the spacing between buttons
 
-        // Adjust the vertical position of the button
-        RectTransform buttonRect = button.GetComponent<RectTransform>();
-        Vector2 buttonPosition = buttonRect.anchoredPosition;
-        buttonPosition.y = -i * (buttonHeight + verticalSpacing);
-        buttonRect.anchoredPosition = buttonPosition;
+        for (int i = 0; i < options.Count; i++)
+        {
+            GameObject buttonGO = Instantiate(optionButtonPrefab, optionButtonParent);
+            Button button = buttonGO.GetComponent<Button>();
+            int index = i;
+            button.onClick.AddListener(() => PlayerChoice(options[index]));
+            button.GetComponentInChildren<TextMeshProUGUI>().text = options[i].optionText;
+
+            // Adjust the vertical position of the button
+            RectTransform buttonRect = button.GetComponent<RectTransform>();
+            Vector2 buttonPosition = buttonRect.anchoredPosition;
+            buttonPosition.y = -i * (buttonHeight + verticalSpacing);
+            buttonRect.anchoredPosition = buttonPosition;
+        }
     }
-}
 
     public void PlayerChoice(DialogueOption selectedOption)
     {
-        ModifyMoralityAndFriendship(selectedOption.optionType);
+        // Check whether to modify morality or friendship
+        if (selectedOption.applyMoralityChangePositive || selectedOption.applyMoralityChangeNegative)
+        {
+            // Pass the trait name to modify morality based on the trait value
+            MoralityFriendshipManager.instance.ModifyMorality(companion.name, selectedOption.moralityChange, selectedOption.traitName);
+        }
+        if (selectedOption.applyFriendshipChangePositive || selectedOption.applyFriendshipChangeNegative)
+        {
+            // Pass the trait name to modify friendship based on the trait value
+            MoralityFriendshipManager.instance.ModifyFriendship(companion.name, selectedOption.friendshipChange, selectedOption.traitName);
+        }
+
+        isDialogueShowing = false;
         ClearDialogueOptions();
 
         // Check if there are follow-up dialogues for the selected option
@@ -173,6 +200,7 @@ public class CompanionDialogue : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         dialogueBoxImage.gameObject.SetActive(false);
+        isDialogueShowing = false;
     }
 
     void ClearDialogueOptions()
@@ -182,43 +210,9 @@ public class CompanionDialogue : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-
-    private void ModifyMoralityAndFriendship(DialogueOptionType optionType)
-    {
-        int moralityChange = GetMoralityChange(optionType);
-        int friendshipChange = GetFriendshipChange(optionType);
-        moralityFriendshipManager.ModifyMorality(companion.name, moralityChange);
-        moralityFriendshipManager.ModifyFriendship(companion.name, friendshipChange);
-    }
-
-    private int GetMoralityChange(DialogueOptionType optionType)
-    {
-        int moralityTraitValue = companion.personalityTraits[0].value;
-        switch (optionType)
-        {
-            case DialogueOptionType.Positive:
-                return (moralityTraitValue > 0) ? 1 : 0;
-            case DialogueOptionType.Negative:
-                return (moralityTraitValue < 0) ? -1 : 0;
-            default:
-                return 0;
-        }
-    }
-
-    private int GetFriendshipChange(DialogueOptionType optionType)
-    {
-        int friendshipTraitValue = companion.personalityTraits[1].value;
-        switch (optionType)
-        {
-            case DialogueOptionType.Positive:
-                return (friendshipTraitValue > 0) ? 1 : 0;
-            case DialogueOptionType.Negative:
-                return (friendshipTraitValue < 0) ? -1 : 0;
-            default:
-                return 0;
-        }
-    }
 }
+
+
 
 
 

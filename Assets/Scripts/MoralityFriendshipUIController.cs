@@ -3,51 +3,68 @@ using UnityEngine.UI;
 
 public class MoralityFriendshipUIController : MonoBehaviour
 {
-    public CompanionDialogue companionDialogue;
-    public GameObject moralityFriendshipUI;
-    public Slider moralitySlider;
-    public Slider friendshipSlider;
+    public GameObject statsPanel;
+    public Image moralityFillImage;
+    public Image friendshipFillImage;
 
-    private bool isMoralityFriendshipUIVisible = false;
+    private MoralityFriendshipManager moralityFriendshipManager;
 
     void Update()
     {
         // Check if TAB key is pressed
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            ToggleMoralityFriendshipUI();
+            ToggleStatsPanel();
         }
     }
 
-    void ToggleMoralityFriendshipUI()
+    void ToggleStatsPanel()
     {
-        isMoralityFriendshipUIVisible = !isMoralityFriendshipUIVisible;
-        moralityFriendshipUI.SetActive(isMoralityFriendshipUIVisible);
+        // Toggle the visibility of the stats panel
+        statsPanel.SetActive(!statsPanel.activeSelf);
 
-        if (isMoralityFriendshipUIVisible)
+        if (statsPanel.activeSelf)
         {
-            UpdateMoralityFriendshipUI();
+            FindMoralityFriendshipManager();
+            UpdateUI();
         }
     }
 
-    void UpdateMoralityFriendshipUI()
+    void FindMoralityFriendshipManager()
     {
-        // Update morality and friendship bars
-        moralitySlider.value = CalculateMoralityFill();
-        friendshipSlider.value = CalculateFriendshipFill();
+        moralityFriendshipManager = FindObjectOfType<MoralityFriendshipManager>();
+        if (moralityFriendshipManager == null)
+        {
+            Debug.LogError("MoralityFriendshipManager not found in the scene.");
+        }
     }
 
-    float CalculateMoralityFill()
+    void UpdateUI()
     {
-        // Calculate morality fill value based on the current morality value of the companion
-        return (float)companionDialogue.companion.morality / 100f;
+        if (moralityFriendshipManager == null)
+        {
+            Debug.LogError("MoralityFriendshipManager is not assigned.");
+            return;
+        }
+
+        Companion companion = moralityFriendshipManager.companions[0]; // Assuming there's only one companion for simplicity
+        UpdateMoralityFill(companion.morality);
+        UpdateFriendshipFill(companion.friendship);
     }
 
-    float CalculateFriendshipFill()
+    void UpdateMoralityFill(int morality)
     {
-        // Calculate friendship fill value based on the current friendship value of the companion
-        return (float)companionDialogue.companion.friendship / 100f;
+        float normalizedMorality = Mathf.Clamp01((float)morality / 100f);
+        moralityFillImage.fillAmount = normalizedMorality;
+    }
+
+    void UpdateFriendshipFill(int friendship)
+    {
+        float normalizedFriendship = Mathf.Clamp01((float)friendship / 100f);
+        friendshipFillImage.fillAmount = normalizedFriendship;
     }
 }
+
+
 
 
