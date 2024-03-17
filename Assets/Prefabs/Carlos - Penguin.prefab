@@ -108,7 +108,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Calm
       value: 6
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Empathetic
       value: 9
@@ -124,64 +124,312 @@ MonoBehaviour:
   optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
   optionButtonParent: {fileID: 3041467837572050464}
   dialogues:
-  - text: What do you think about killing?
+  - text: Your friend is panicking about an upcoming exam. How do you respond?
     options:
-    - optionText: Killing is fun!
+    - optionText: Offer reassurance and suggest studying together to alleviate their
+        anxiety
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 9
+    - optionText: Brush off their concerns, implying they're overreacting
       optionType: 2
-      traitName: Noble
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -16
+      friendshipChange: -17
+    - optionText: Listen calmly but refrain from offering any solutions
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: A classmate shares their struggles with you. How do you react?
+    options:
+    - optionText: Dismiss their problems, suggesting they're insignificant
+      optionType: 2
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -25
+    - optionText: Provide generic advice without delving deep into their feelings
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Listen attentively and offer support, showing understanding for
+        their situation
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 15
+  - text: You fail a crucial test despite your best efforts. How do you bounce back?
+    options:
+    - optionText: Blame external factors or give up entirely, feeling defeated
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -20
+    - optionText: Reflect on your mistakes, seek help if needed, and develop a plan
+        to improve
+      optionType: 0
+      traitName: Resilient
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 13
+      friendshipChange: 11
+    - optionText: Accept the failure passively, without taking further action
+      optionType: 1
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: A friend is upset with you for a misunderstanding. How do you handle the
+      situation?
+    options:
+    - optionText: Stay composed, communicate calmly, and work towards resolving the
+        issue amicably
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 11
+    - optionText: Avoid confrontation and hope the issue resolves itself over time
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: React defensively or escalate the conflict, worsening the situation
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -18
+  - text: You notice a classmate being bullied. How do you intervene?
+    options:
+    - optionText: Stand up for the classmate, offer support, and report the incident
+        to authorities
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 15
+      friendshipChange: 15
+    - optionText: Feel concern but hesitate to get involved, fearing repercussions
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -11
+      friendshipChange: -12
+    - optionText: Ignore the bullying, prioritising personal safety over helping
+        others
+      optionType: 2
+      traitName: Empathetic
       applyMoralityChangePositive: 0
       applyMoralityChangeNegative: 1
       applyFriendshipChangePositive: 0
       applyFriendshipChangeNegative: 1
       moralityChange: -23
-      friendshipChange: -30
-    - optionText: Kill only to survive
-      optionType: 1
-      traitName: Noble
-      applyMoralityChangePositive: 0
-      applyMoralityChangeNegative: 1
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: -5
-      friendshipChange: 5
-    - optionText: Killing is bad...
-      optionType: 0
-      traitName: Noble
-      applyMoralityChangePositive: 1
-      applyMoralityChangeNegative: 0
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: 25
-      friendshipChange: 30
-  - text: testing
+      friendshipChange: -21
+  - text: You face criticism for a project you worked hard on. How do you respond?
     options:
-    - optionText: woo
-      optionType: 2
-      traitName: Brave
-      applyMoralityChangePositive: 0
-      applyMoralityChangeNegative: 1
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: -20
-      friendshipChange: -30
-    - optionText: nawww
+    - optionText: Brush off the criticism without much consideration for its validity
       optionType: 1
-      traitName: Brave
+      traitName: Resilient
       applyMoralityChangePositive: 0
       applyMoralityChangeNegative: 0
       applyFriendshipChangePositive: 0
       applyFriendshipChangeNegative: 0
-      moralityChange: 5
-      friendshipChange: 8
-    - optionText: yaaaa
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: React defensively or lash out at critics, refusing to acknowledge
+        any flaws
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -22
+    - optionText: Accept feedback gracefully, learn from it, and use it to improve
+        future endeavors
       optionType: 0
-      traitName: Brave
+      traitName: Resilient
       applyMoralityChangePositive: 1
       applyMoralityChangeNegative: 0
       applyFriendshipChangePositive: 1
       applyFriendshipChangeNegative: 0
-      moralityChange: 40
-      friendshipChange: 35
+      moralityChange: 12
+      friendshipChange: 14
+  - text: You're running late for an important event. How do you manage the situation?
+    options:
+    - optionText: Blame external factors or make excuses for your tardiness
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -18
+    - optionText: Rush without considering the consequences or notifying others
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Stay composed, notify relevant parties, and make efforts to minimise
+        the impact of your lateness
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 13
+  - text: A friend is going through a breakup and seeks your support. How do you
+      respond?
+    options:
+    - optionText: Offer a listening ear, validate their feelings, and provide emotional
+        support
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 13
+    - optionText: Provide practical advice without addressing their emotional needs
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Minimise their pain or change the subject, avoiding the topic altogether
+      optionType: 2
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -23
+  - text: You experience a setback in achieving a personal goal. How do you cope?
+    options:
+    - optionText: Blame external factors or give up on the goal entirely, feeling
+        defeated
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -16
+      friendshipChange: -17
+    - optionText: Reassess your approach, set new objectives, and persevere with
+        determination
+      optionType: 0
+      traitName: Resilient
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 11
+    - optionText: Accept the setback passively, without making any changes to your
+        plans
+      optionType: 1
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You encounter a conflict between friends. How do you mediate
+    options:
+    - optionText: Stay on the sidelines, avoiding involvement
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Take sides or exacerbate the conflict with inflammatory remarks
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -17
+      friendshipChange: -20
+    - optionText: Act as a neutral mediator, facilitating open communication and
+        finding common ground
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 11
   followUpDialogues:
   - triggerOption: 0
     dialogues:

@@ -108,7 +108,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Brave
       value: 7
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Loyal
       value: 8
@@ -124,72 +124,307 @@ MonoBehaviour:
   optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
   optionButtonParent: {fileID: 6400768197061873967}
   dialogues:
-  - text: What do you think about killing?
+  - text: Would you confront a dangerous creature to protect your friends?
     options:
-    - optionText: Killing is fun!
+    - optionText: Yes, saving my friends comes first
+      optionType: 0
+      traitName: Brave
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 18
+    - optionText: Yes, if the creature attacks me
+      optionType: 1
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -11
+      friendshipChange: -6
+    - optionText: No, I could get hurt
+      optionType: 2
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -23
+  - text: Do you believe in facing your fears, even when it's difficult?
+    options:
+    - optionText: No, fears are fears for a reason...
+      optionType: 2
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -13
+    - optionText: Yes, it would make me stronger
+      optionType: 0
+      traitName: Brave
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 11
+    - optionText: Only when I have to
+      optionType: 1
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 1
+  - text: How do you feel about exploring dark and mysterious places?
+    options:
+    - optionText: Exploring is my middle name!
+      optionType: 0
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 13
+    - optionText: No thank you, something could attack me...
+      optionType: 2
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -13
+    - optionText: Uh.. I'd rather be safe and not die out there
+      optionType: 1
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -5
+  - text: Would you stand up against injustice, even if it puts you in danger?
+    options:
+    - optionText: Does that mean confrontation?
+      optionType: 2
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -11
+    - optionText: I will stand up and protect those in need
+      optionType: 0
+      traitName: Brave
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 11
+    - optionText: I'd rather let someone else do it and let them get hurt than me...
+      optionType: 2
+      traitName: Brave
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -23
+      friendshipChange: -19
+  - text: Do you prioritise keeping your promises, even if it's inconvenient?
+    options:
+    - optionText: Ofcourse, I will never break a promise
+      optionType: 0
+      traitName: Loyal
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 6
+      friendshipChange: 11
+    - optionText: I would keep it if it benefits me
+      optionType: 1
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -10
+      friendshipChange: -14
+    - optionText: I have never kept a promise in my life
+      optionType: 2
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -21
+  - text: How important is it to you to stand by your friends, no matter what?
+    options:
+    - optionText: Eh, I've betrayed a friend before, they deserved it though
+      optionType: 2
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -24
+    - optionText: I would always stand by my friend, even if they hurt someone
+      optionType: 1
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -12
+      friendshipChange: 2
+    - optionText: I would stand by my friend, unless they did something bad
+      optionType: 0
+      traitName: Loyal
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 16
+  - text: Would you defend a friend even if it meant facing danger yourself?
+    options:
+    - optionText: Yes, I would sacrifice my life for my friend
+      optionType: 0
+      traitName: Loyal
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 15
+      friendshipChange: 17
+    - optionText: No.. I don't want to get hurt
+      optionType: 1
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -8
+      friendshipChange: -9
+    - optionText: My friend probably deserved it, they can deal with it themselves
+      optionType: 2
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -24
+  - text: Do you believe in staying true to your ideals, even when it's difficult?
+    options:
+    - optionText: Eh, I don't really care, stop bothering me
+      optionType: 2
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -24
+    - optionText: Ofcourse! My ideals are important to me
+      optionType: 0
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 13
+    - optionText: I would probably give up. I hate when things get too tough
+      optionType: 2
+      traitName: Loyal
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -16
+  - text: How do you feel about helping those less fortunate than yourself, without
+      expecting anything in return?
+    options:
+    - optionText: All I want is for people to be happy so I will always try to help
+        when I can
+      optionType: 0
+      traitName: Noble
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 15
+      friendshipChange: 12
+    - optionText: They have no money, then I do not help, sucks to suck
+      optionType: 2
+      traitName: Noble
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -17
+    - optionText: I would pretend to help then steal from them
       optionType: 2
       traitName: Noble
       applyMoralityChangePositive: 0
       applyMoralityChangeNegative: 1
       applyFriendshipChangePositive: 0
       applyFriendshipChangeNegative: 1
-      moralityChange: -23
-      friendshipChange: -30
-    - optionText: Kill only to survive
-      optionType: 1
-      traitName: Noble
-      applyMoralityChangePositive: 0
-      applyMoralityChangeNegative: 1
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: -5
-      friendshipChange: 5
-    - optionText: Killing is bad...
-      optionType: 0
-      traitName: Noble
-      applyMoralityChangePositive: 1
-      applyMoralityChangeNegative: 0
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: 25
-      friendshipChange: 30
-  - text: testing
+      moralityChange: -26
+      friendshipChange: -21
+  - text: Do you believe in treating everyone with kindness and respect, regardless
+      of their status?
     options:
-    - optionText: woo
-      optionType: 2
-      traitName: Brave
-      applyMoralityChangePositive: 0
-      applyMoralityChangeNegative: 1
-      applyFriendshipChangePositive: 1
-      applyFriendshipChangeNegative: 0
-      moralityChange: -20
-      friendshipChange: -30
-    - optionText: nawww
-      optionType: 1
-      traitName: Brave
-      applyMoralityChangePositive: 0
-      applyMoralityChangeNegative: 0
-      applyFriendshipChangePositive: 0
-      applyFriendshipChangeNegative: 0
-      moralityChange: 5
-      friendshipChange: 8
-    - optionText: yaaaa
+    - optionText: I will always treat people with kindness and respect
       optionType: 0
-      traitName: Brave
+      traitName: Noble
       applyMoralityChangePositive: 1
       applyMoralityChangeNegative: 0
       applyFriendshipChangePositive: 1
       applyFriendshipChangeNegative: 0
-      moralityChange: 40
-      friendshipChange: 35
+      moralityChange: 17
+      friendshipChange: 15
+    - optionText: I will if they have not mistreated me in the past
+      optionType: 1
+      traitName: Noble
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -8
+      friendshipChange: 4
+    - optionText: Nah, they are all peasants in my eyes
+      optionType: 2
+      traitName: Noble
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -20
+      friendshipChange: -17
   followUpDialogues:
   - triggerOption: 0
     dialogues:
-    - text: On that, we can agree
+    - text: You're so right!
       options: []
-    - text: I agree!
+    - text: I'm glad we can agree!
       options: []
-    - text: We agree on something!
+    - text: So true
       options: []
   - triggerOption: 1
     dialogues:

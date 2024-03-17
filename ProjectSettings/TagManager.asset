@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Companion
   - BanditTrigger
+  - Bandit
   layers:
   - Default
   - TransparentFX

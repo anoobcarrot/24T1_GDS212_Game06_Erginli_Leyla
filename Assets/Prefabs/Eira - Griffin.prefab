@@ -108,7 +108,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Graceful
       value: 4
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Courageous
       value: 7
@@ -123,7 +123,309 @@ MonoBehaviour:
   dialogueBoxImage: {fileID: 1289490044411955248}
   optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
   optionButtonParent: {fileID: 8686225500320594415}
-  dialogues: []
+  dialogues:
+  - text: How do you react when faced with criticism?
+    options:
+    - optionText: I think criticism makes me grow as a person and appreciate different
+        perspectives
+      optionType: 0
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 8
+    - optionText: I'm partically defensive when it comes to criticism, I think my
+        opinion is most important
+      optionType: 2
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -12
+    - optionText: I would take it into account but it's still my decision
+      optionType: 1
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 2
+  - text: How do you approach challenges and obstacles in your path?
+    options:
+    - optionText: I prefer staying in my comfort zone
+      optionType: 2
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -15
+    - optionText: I would assess the challenges before taking action
+      optionType: 1
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: 4
+    - optionText: I view challenges as opportunies for personal development and will
+        take them head on
+      optionType: 0
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 14
+  - text: How do you respond to someone in distress?
+    options:
+    - optionText: I would feel uncomfortable, not knowing how to respond
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -26
+    - optionText: I would help, support and provide comfort so they know they're
+        not alone
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: 16
+    - optionText: I would offer help if I can but I struggle to find the right words
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 2
+  - text: How do you handle disagreements or conflicts with others?
+    options:
+    - optionText: I strive for harmony and will always try to find a compromise
+      optionType: 0
+      traitName: Graceful
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 11
+    - optionText: I would try to resolve it peacefully but may just avoid the whole
+        situation if I don't see it going anywhere
+      optionType: 1
+      traitName: Graceful
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 4
+      friendshipChange: 3
+    - optionText: I would often escalate the tension rather than seeking a resolution
+      optionType: 2
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -13
+      friendshipChange: -15
+  - text: How do you respond to situations where standing up for what is right may
+      be unpopular?
+    options:
+    - optionText: I don't like controversial issues, I would keep a low profile
+      optionType: 2
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -8
+    - optionText: I would weigh the risks, sometimes staying silent
+      optionType: 1
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 1
+    - optionText: I would always stand up to what's right as my integrity is important
+      optionType: 0
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: 9
+  - text: How do you support a friend who is going through a tough time?
+    options:
+    - optionText: There problems would be too overwhelming, I would ignore the situation
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -24
+      friendshipChange: -21
+    - optionText: I would offer them a shoulder to lean on and listen to everything
+        without judgement
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 7
+      friendshipChange: 9
+    - optionText: I would try to be there for them but I find it hard to pay attention
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -11
+      friendshipChange: 2
+  - text: How do you handle compliments or praise from others?
+    options:
+    - optionText: I don't care about coompliments from others... I know I'm the best
+      optionType: 2
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -12
+    - optionText: I would express my gratitude for the recognition and acknowledge
+        the efforts of others
+      optionType: 0
+      traitName: Graceful
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 12
+    - optionText: I appreciate the compliments but I would feel awkward, not knowing
+        how to respond
+      optionType: 1
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -8
+      friendshipChange: 8
+  - text: How do you approach new experiences or opportunities outside your comfort
+      zone?
+    options:
+    - optionText: I embrace new challenges and take it as an opportunity for growth
+      optionType: 0
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 9
+    - optionText: I would consider the potential risks before deciding
+      optionType: 1
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 2
+    - optionText: I'd rather avoid new experiences all together and stay in my comfort
+        zone
+      optionType: 2
+      traitName: Courageous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -13
+  - text: How do you respond when someone makes a mistake or fails at something?
+    options:
+    - optionText: I judge and criticise them, feeling disappointed from their failures
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -24
+      friendshipChange: -22
+    - optionText: I would offer my support and encouragement, telling them it's okay
+        to make mistakes as you will learn from them
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 11
+    - optionText: I acknowledge their efforts but they need to learn on their own
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -10
+      friendshipChange: -8
+  - text: How do you handle unexpected changes or disruptions to your plans?
+    options:
+    - optionText: I would try to adjust my plans but will feel unsettled
+      optionType: 1
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 3
+    - optionText: I adapt to changes easily
+      optionType: 0
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 11
+    - optionText: I would feel frustrated and overwhelmed
+      optionType: 2
+      traitName: Graceful
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -7
   followUpDialogues:
   - triggerOption: 0
     dialogues:

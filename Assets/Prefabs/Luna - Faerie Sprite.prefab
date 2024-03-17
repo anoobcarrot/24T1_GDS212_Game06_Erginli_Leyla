@@ -186,7 +186,7 @@ MonoBehaviour:
     - name: Mischievous
       value: -4
       affectsMorality: 1
-      affectsFriendship: 0
+      affectsFriendship: 1
     - name: Wise
       value: 8
       affectsMorality: 1
@@ -200,7 +200,304 @@ MonoBehaviour:
   dialogueBoxImage: {fileID: 3408680097492494454}
   optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
   optionButtonParent: {fileID: 5053192929173330345}
-  dialogues: []
+  dialogues:
+  - text: Your friend is about to take a bite of dessert, but you notice it has a
+      small insect on it. What do you do?
+    options:
+    - optionText: Alert your friend discreetly so they don't eat it
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 15
+      friendshipChange: -7
+    - optionText: Laugh and point out the insect, embarrassing your friend
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -11
+      friendshipChange: 16
+    - optionText: Ignore the insect and say nothing
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: -12
+      friendshipChange: 0
+  - text: Your friend seeks your advice on handling a conflict with someone. What
+      do you suggest?
+    options:
+    - optionText: Encourage open communication and empathy to resolve the conflict
+        peacefully
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 9
+    - optionText: Suggest retaliation and avoidance without considering the consequences
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -15
+      friendshipChange: -11
+    - optionText: Offer various options without taking a stance
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 2
+  - text: You come across a stray animal in need of help. What is your response?
+    options:
+    - optionText: Acknowledge the situation, offer it food and continue on your way
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Ignote it and leave it to fend for itself
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -25
+      friendshipChange: -21
+    - optionText: Take the time to assist the animal and find it proper care
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 7
+      friendshipChange: 9
+  - text: Your friend receives a gift that they adore. What do you do?
+    options:
+    - optionText: Express jealousy, dimishing their happiness
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -8
+      friendshipChange: 14
+    - optionText: Acknowledge the gift but don't offer much enthusiasm
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 5
+    - optionText: Express genuine happiness for them
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 13
+      friendshipChange: -11
+  - text: A friend seeks your opinion on a risky decision they want to make. How
+      do you respond?
+    options:
+    - optionText: Offer thoughtful advice for making an informed choice
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 11
+    - optionText: Discourage them without offering any reasoning
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -13
+    - optionText: Remain impartial, leaving the decision up to them
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You witness someone in distress on the street. What action do you take?
+    options:
+    - optionText: Ignore them and continue on your way
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -21
+    - optionText: Approach them and offer assiatnce, giving them the help they need
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 13
+      friendshipChange: 11
+    - optionText: Feel concern but hesitate to intervene directly
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -13
+  - text: Your friend is preparing for an important event and asks for your opinion
+      on their outfit. How do you respond?
+    options:
+    - optionText: Offer feedback to help them look their best
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 13
+      friendshipChange: -12
+    - optionText: Give a non-committal response to avoid conflict
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Critisise their choice, possibly causing insecurity
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -13
+      friendshipChange: 16
+  - text: A friend is considering quitting their job abruptly due to frustration.
+      How do you advise them?
+    options:
+    - optionText: Encourage them to explore their options carefully and consider
+        the long-term consequences
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 7
+    - optionText: Push them to quit impulsively without weighing the repercussions
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: -18
+      friendshipChange: 0
+    - optionText: Listen to them but refrain from offering advice
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You notice a classmate struggling with their studies. How do you respond?
+    options:
+    - optionText: Ignore their struggles or mock them, worsening the situation
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -21
+    - optionText: Offer to tutor them or provide assistance
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 14
+    - optionText: Feel sympathy but don't intervene, they'll manage on their own
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -12
+  - text: Your friend shares a secret with you. How do you handle this information?
+    options:
+    - optionText: Keep the secret but without much consideration os its significance
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -5
+    - optionText: Respect their trust and keep the secret confidential
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 14
+      friendshipChange: -9
+    - optionText: Betray their trust by spreading the secret to others
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -14
+      friendshipChange: 13
   followUpDialogues:
   - triggerOption: 0
     dialogues:

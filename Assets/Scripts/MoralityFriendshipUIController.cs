@@ -7,7 +7,23 @@ public class MoralityFriendshipUIController : MonoBehaviour
     public Image moralityFillImage;
     public Image friendshipFillImage;
 
-    private MoralityFriendshipManager moralityFriendshipManager;
+    private CompanionDialogue companionDialogue;
+
+    void Start()
+    {
+        // Find the CompanionDialogue script
+        companionDialogue = FindObjectOfType<CompanionDialogue>();
+        if (companionDialogue == null)
+        {
+            Debug.LogError("CompanionDialogue not found in the scene.");
+        }
+        else
+        {
+            // Subscribe to morality and friendship change events
+            companionDialogue.OnMoralityChange.AddListener(UpdateMoralityFill);
+            companionDialogue.OnFriendshipChange.AddListener(UpdateFriendshipFill);
+        }
+    }
 
     void Update()
     {
@@ -16,6 +32,8 @@ public class MoralityFriendshipUIController : MonoBehaviour
         {
             ToggleStatsPanel();
         }
+
+        UpdateUI();
     }
 
     void ToggleStatsPanel()
@@ -25,31 +43,21 @@ public class MoralityFriendshipUIController : MonoBehaviour
 
         if (statsPanel.activeSelf)
         {
-            FindMoralityFriendshipManager();
             UpdateUI();
-        }
-    }
-
-    void FindMoralityFriendshipManager()
-    {
-        moralityFriendshipManager = FindObjectOfType<MoralityFriendshipManager>();
-        if (moralityFriendshipManager == null)
-        {
-            Debug.LogError("MoralityFriendshipManager not found in the scene.");
         }
     }
 
     void UpdateUI()
     {
-        if (moralityFriendshipManager == null)
+        if (companionDialogue == null)
         {
-            Debug.LogError("MoralityFriendshipManager is not assigned.");
+            Debug.LogError("CompanionDialogue is not assigned.");
             return;
         }
 
-        Companion companion = moralityFriendshipManager.companions[0]; // Assuming there's only one companion for simplicity
-        UpdateMoralityFill(companion.morality);
-        UpdateFriendshipFill(companion.friendship);
+        // Get initial values from CompanionDialogue
+        UpdateMoralityFill(companionDialogue.companion.morality);
+        UpdateFriendshipFill(companionDialogue.companion.friendship);
     }
 
     void UpdateMoralityFill(int morality)
@@ -64,6 +72,7 @@ public class MoralityFriendshipUIController : MonoBehaviour
         friendshipFillImage.fillAmount = normalizedFriendship;
     }
 }
+
 
 
 

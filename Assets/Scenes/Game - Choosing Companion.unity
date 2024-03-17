@@ -1152,7 +1152,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Brave
       value: 7
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Loyal
       value: 8
@@ -1170,7 +1170,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Graceful
       value: 4
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Courageous
       value: 7
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     - name: Mischievous
       value: -4
       affectsMorality: 1
-      affectsFriendship: 0
+      affectsFriendship: 1
     - name: Wise
       value: 8
       affectsMorality: 1
@@ -1206,7 +1206,7 @@ MonoBehaviour:
     personalityTraits:
     - name: Calm
       value: 6
-      affectsMorality: 0
+      affectsMorality: 1
       affectsFriendship: 1
     - name: Empathetic
       value: 9

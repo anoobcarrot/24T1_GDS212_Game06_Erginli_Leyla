@@ -92,6 +92,9 @@ public class MoralityFriendshipManager : MonoBehaviour
                 companion.morality = Mathf.Clamp(companion.morality + amount + traitValue, 0, 100);
                 Debug.Log("Morality change for " + companionName + " with trait " + traitName + ": " + amount);
                 Debug.Log("New morality value for " + companionName + ": " + companion.morality);
+
+                // Update morality and friendship values in the CompanionDialogue script
+                companion.gameObject.GetComponent<CompanionDialogue>().UpdateMoralityFriendship(companion.morality, companion.friendship);
             }
             else
             {
@@ -118,6 +121,9 @@ public class MoralityFriendshipManager : MonoBehaviour
                 companion.friendship = Mathf.Clamp(companion.friendship + amount + traitValue, 0, 100);
                 Debug.Log("Friendship change for " + companionName + " with trait " + traitName + ": " + amount);
                 Debug.Log("New friendship value for " + companionName + ": " + companion.friendship);
+
+                // Update morality and friendship values in the CompanionDialogue script
+                companion.gameObject.GetComponent<CompanionDialogue>().UpdateMoralityFriendship(companion.morality, companion.friendship);
             }
             else
             {
@@ -127,6 +133,21 @@ public class MoralityFriendshipManager : MonoBehaviour
         else
         {
             Debug.LogError("Companion not found: " + companionName);
+        }
+    }
+
+    // Method to get the morality and friendship values for a specific companion
+    public (int, int) GetMoralityAndFriendship(string companionName)
+    {
+        Companion companion = companions.Find(comp => comp.name == companionName);
+        if (companion != null)
+        {
+            return (companion.morality, companion.friendship);
+        }
+        else
+        {
+            Debug.LogError("Companion not found: " + companionName);
+            return (0, 0);
         }
     }
 

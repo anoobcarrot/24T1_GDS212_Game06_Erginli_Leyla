@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
+using UnityEngine.Events;
 
 public enum DialogueOptionType
 {
@@ -67,11 +68,25 @@ public class CompanionDialogue : MonoBehaviour
     private Dialogue currentDialogue;
     [SerializeField] private bool isDialogueShowing = false; // Flag to track whether a dialogue is currently being displayed
 
+    // Events for when morality and friendship change
+    public UnityEvent<int> OnMoralityChange = new UnityEvent<int>();
+    public UnityEvent<int> OnFriendshipChange = new UnityEvent<int>();
+
     void Start()
     {
         moralityFriendshipManager = MoralityFriendshipManager.instance;
         StartCoroutine(ShowRandomDialogueRoutine());
         isDialogueShowing = false;
+
+        // Fetch the initial morality and friendship values
+        (int initialMorality, int initialFriendship) = moralityFriendshipManager.GetMoralityAndFriendship(companion.name);
+        UpdateMoralityFriendship(initialMorality, initialFriendship);
+    }
+
+    private void Update()
+    {
+        (int updatedMorality, int updatedFriendship) = moralityFriendshipManager.GetMoralityAndFriendship(companion.name);
+        UpdateMoralityFriendship(updatedMorality, updatedFriendship);
     }
 
     IEnumerator ShowRandomDialogueRoutine()
@@ -158,6 +173,17 @@ public class CompanionDialogue : MonoBehaviour
             buttonPosition.y = -i * (buttonHeight + verticalSpacing);
             buttonRect.anchoredPosition = buttonPosition;
         }
+    }
+
+    // Method to update morality and friendship values in the CompanionDialogue script
+    public void UpdateMoralityFriendship(int morality, int friendship)
+    {
+        companion.morality = morality;
+        companion.friendship = friendship;
+
+        // Invoke events for UI updates
+        OnMoralityChange.Invoke(morality);
+        OnFriendshipChange.Invoke(friendship);
     }
 
     public void PlayerChoice(DialogueOption selectedOption)
