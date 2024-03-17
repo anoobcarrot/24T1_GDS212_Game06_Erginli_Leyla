@@ -11,7 +11,10 @@ public class BanditDialogue : MonoBehaviour
     {
         Confront,
         Negotiate,
-        Evade
+        Evade,
+        Attack,
+        Kill,
+        Spare
     }
 
     [System.Serializable]
@@ -81,14 +84,85 @@ public class BanditDialogue : MonoBehaviour
     public BanditAttackData banditAttackData;
     public List<Companion> companions; // List of companions
 
+    private bool canAttack = false;
+
     private void Start()
     {
+        isPopUpActive = false;
         // Find the MoralityFriendshipManager component in the scene
         moralityFriendshipManager = FindObjectOfType<MoralityFriendshipManager>();
         if (moralityFriendshipManager == null)
         {
             Debug.LogError("MoralityFriendshipManager not found in the scene!");
         }
+
+        // Check bandit health periodically
+        StartCoroutine(CheckBanditHealth());
+    }
+
+    private bool isPopUpShown = false; // Flag to track if the pop-up has been shown
+
+    private IEnumerator CheckBanditHealth()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f); // Adjust the interval as needed
+
+            // Check if all bandits have 10 health or lower and the pop-up hasn't been shown yet
+            if (AllBanditsLowHealth() && !isPopUpShown)
+            {
+                // Set the flag to indicate that the pop-up is being shown
+                isPopUpShown = true;
+
+                // Show pop-up with "Kill" or "Spare" options
+                ShowKillOrSparePopUp();
+            }
+        }
+    }
+
+    // Method to check if all bandits have low health
+    private bool AllBanditsLowHealth()
+    {
+        GameObject[] bandits = GameObject.FindGameObjectsWithTag("Bandit");
+        foreach (GameObject bandit in bandits)
+        {
+            Bandit banditComponent = bandit.GetComponent<Bandit>();
+            if (banditComponent != null && banditComponent.currentHealth > 10)
+            {
+                return false; // At least one bandit has health above 10
+            }
+        }
+        return true; // All bandits have health 10 or lower
+    }
+
+    [Header("Kill Option")]
+    public BanditAttackOptionData killOptionData;
+    public List<string> killOptionDialogues;
+
+    [Header("Spare Option")]
+    public BanditAttackOptionData spareOptionData;
+    public List<string> spareOptionDialogues;
+
+    private void ShowKillOrSparePopUp()
+    {
+        // Create a list of options
+        List<BanditAttackOptionData> options = new List<BanditAttackOptionData>();
+
+        // Add kill and spare options to the list
+        options.Add(killOptionData);
+        options.Add(spareOptionData);
+
+        // Show the pop-up with options
+        ShowPopUp(options);
+
+        // Show dialogue lines for kill option
+        StartCoroutine(ShowDialogue(killOptionDialogues));
+    }
+
+    private void ShowKillOrSparePopUp(List<string> dialogueLines)
+    {
+        // Use the method without dialogueLines parameter to show default dialogue
+        ShowKillOrSparePopUp();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -160,7 +234,6 @@ public class BanditDialogue : MonoBehaviour
     // Method to hide the pop-up
     public void HidePopUp()
     {
-        isPopUpActive = false;
         popUpUI.SetActive(false);
     }
 
@@ -188,7 +261,48 @@ public class BanditDialogue : MonoBehaviour
 
     private void PlayerChoice(BanditAttackOptionData selectedOption)
     {
+        // Handle trait effects
         HandleTraitEffects(selectedOption.traitEffects);
+
+        // Set canAttack flag to true when the Attack option is selected
+        if (selectedOption.option == BanditAttackOption.Attack)
+        {
+            canAttack = true;
+        }
+        else
+        {
+            canAttack = false;
+        }
+
+        // Check the selected option and perform corresponding actions
+        switch (selectedOption.option)
+        {
+            case BanditAttackOption.Confront:
+                // Handle confrontation option
+                break;
+            case BanditAttackOption.Negotiate:
+                // Handle negotiation option
+                break;
+            case BanditAttackOption.Evade:
+                // Handle evasion option
+                break;
+            case BanditAttackOption.Attack:
+                // Call the Attack methods for both player and bandit
+                FindObjectOfType<Bandit>().AttackPlayer();
+                FindObjectOfType<PlayerMovement>().AttackBandit();
+                break;
+            case BanditAttackOption.Kill:
+                // Call the Kill method
+                KillBandits();
+                break;
+            case BanditAttackOption.Spare:
+                // Call the Spare method
+                SpareBandits();
+                break;
+            default:
+                Debug.LogWarning("Unknown option selected.");
+                break;
+        }
 
         // Display follow-up dialogues if available
         if (selectedOption.followUpDialogues.Count > 0)
@@ -207,7 +321,8 @@ public class BanditDialogue : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        TriggerDialogue(selectedOption.option); // Trigger dialogue after handling effects
+        // Trigger dialogue after handling effects
+        TriggerDialogue(selectedOption.option);
     }
 
     private IEnumerator ShowFollowUpDialogues(List<string> followUpDialogues)
@@ -249,6 +364,46 @@ public class BanditDialogue : MonoBehaviour
         }
     }
 
+    // Method to kill all bandits
+    private void KillBandits()
+    {
+        GameObject[] bandits = GameObject.FindGameObjectsWithTag("Bandit");
+        foreach (GameObject bandit in bandits)
+        {
+            Destroy(bandit);
+            GameObject[] barriers = GameObject.FindGameObjectsWithTag("Barrier");
+            foreach (GameObject barrier in barriers)
+            {
+                Destroy(barrier);
+            }
+        }
+    }
+
+    // Method to spare all bandits and destroy barriers
+    private void SpareBandits()
+    {
+        GameObject[] bandits = GameObject.FindGameObjectsWithTag("Bandit");
+        bool allLowHealth = true;
+        foreach (GameObject bandit in bandits)
+        {
+            Bandit banditComponent = bandit.GetComponent<Bandit>();
+            if (banditComponent != null && banditComponent.currentHealth > 10)
+            {
+                allLowHealth = false;
+                break;
+            }
+        }
+
+        if (allLowHealth)
+        {
+            GameObject[] barriers = GameObject.FindGameObjectsWithTag("Barrier");
+            foreach (GameObject barrier in barriers)
+            {
+                Destroy(barrier);
+            }
+        }
+    }
+
     // Method to retrieve dialogue data based on selected option
     private BanditAttackDialogueData GetDialogueData(BanditAttackOption option)
     {
@@ -277,7 +432,19 @@ public class BanditDialogue : MonoBehaviour
         }
     }
 
-    [System.Serializable]
+    // Method to set the canAttack variable
+    public void SetCanAttack(bool value)
+    {
+        canAttack = value;
+    }
+
+    // Method to check if attacks are allowed
+    public bool CanAttack()
+    {
+        return canAttack;
+    }
+
+[System.Serializable]
     public class BanditAttackStep
     {
         public string dialogue; // Dialogue for this step

@@ -7,11 +7,12 @@ TagManager:
   - Companion
   - BanditTrigger
   - Bandit
+  - Barrier
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bandit
   - Water
   - UI
   - 

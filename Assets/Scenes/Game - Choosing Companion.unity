@@ -1440,6 +1440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7513926643631766222, guid: c2e661af9baad4b33a5934b6566511cf, type: 3}
+      propertyPath: banditLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
