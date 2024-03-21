@@ -1,0 +1,730 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &12940150082339558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5464052511975851174}
+  - component: {fileID: 4423418932578183661}
+  - component: {fileID: 5982823529389817727}
+  - component: {fileID: 1496750939301304619}
+  - component: {fileID: 6922874307937293403}
+  - component: {fileID: 8673635683548582450}
+  - component: {fileID: 1614066918086130008}
+  m_Layer: 0
+  m_Name: Carlos - Penguin
+  m_TagString: Companion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5464052511975851174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.26, y: 0.26, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 571027119036115416}
+  - {fileID: 8628987673656225579}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4423418932578183661
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 143686362, guid: 3210b2cae59934e77a082debd8d5d6bc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &5982823529389817727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdda017b54ef34c13b24d58e9d40e5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companion:
+    name: Carlos
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 12940150082339558}
+    personalityTraits:
+    - name: Calm
+      value: 6
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Empathetic
+      value: 9
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Resilient
+      value: 7
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  dialogueText: {fileID: 296637478989218399}
+  dialogueBoxImage: {fileID: 2849804347580474224}
+  optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
+  optionButtonParent: {fileID: 5684129575416255151}
+  dialogues:
+  - text: Your friend is panicking about an upcoming exam. How do you respond?
+    options:
+    - optionText: Offer reassurance and suggest studying together to alleviate their
+        anxiety
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 9
+    - optionText: Brush off their concerns, implying they're overreacting
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -16
+      friendshipChange: -17
+    - optionText: Listen calmly but refrain from offering any solutions
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: A classmate shares their struggles with you. How do you react?
+    options:
+    - optionText: Dismiss their problems, suggesting they're insignificant
+      optionType: 2
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -25
+    - optionText: Provide generic advice without delving deep into their feelings
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Listen attentively and offer support, showing understanding for
+        their situation
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 15
+  - text: You fail a crucial test despite your best efforts. How do you bounce back?
+    options:
+    - optionText: Blame external factors or give up entirely, feeling defeated
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -20
+    - optionText: Reflect on your mistakes, seek help if needed, and develop a plan
+        to improve
+      optionType: 0
+      traitName: Resilient
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 13
+      friendshipChange: 11
+    - optionText: Accept the failure passively, without taking further action
+      optionType: 1
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: A friend is upset with you for a misunderstanding. How do you handle the
+      situation?
+    options:
+    - optionText: Stay composed, communicate calmly, and work towards resolving the
+        issue amicably
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 11
+    - optionText: Avoid confrontation and hope the issue resolves itself over time
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: React defensively or escalate the conflict, worsening the situation
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -18
+  - text: You notice a classmate being bullied. How do you intervene?
+    options:
+    - optionText: Stand up for the classmate, offer support, and report the incident
+        to authorities
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 15
+      friendshipChange: 15
+    - optionText: Feel concern but hesitate to get involved, fearing repercussions
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -11
+      friendshipChange: -12
+    - optionText: Ignore the bullying, prioritising personal safety over helping
+        others
+      optionType: 2
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -23
+      friendshipChange: -21
+  - text: You face criticism for a project you worked hard on. How do you respond?
+    options:
+    - optionText: Brush off the criticism without much consideration for its validity
+      optionType: 1
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: React defensively or lash out at critics, refusing to acknowledge
+        any flaws
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -22
+    - optionText: Accept feedback gracefully, learn from it, and use it to improve
+        future endeavors
+      optionType: 0
+      traitName: Resilient
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 14
+  - text: You're running late for an important event. How do you manage the situation?
+    options:
+    - optionText: Blame external factors or make excuses for your tardiness
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -18
+    - optionText: Rush without considering the consequences or notifying others
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Stay composed, notify relevant parties, and make efforts to minimise
+        the impact of your lateness
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 13
+  - text: A friend is going through a breakup and seeks your support. How do you
+      respond?
+    options:
+    - optionText: Offer a listening ear, validate their feelings, and provide emotional
+        support
+      optionType: 0
+      traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 12
+      friendshipChange: 13
+    - optionText: Provide practical advice without addressing their emotional needs
+      optionType: 1
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Minimise their pain or change the subject, avoiding the topic altogether
+      optionType: 2
+      traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -23
+  - text: You experience a setback in achieving a personal goal. How do you cope?
+    options:
+    - optionText: Blame external factors or give up on the goal entirely, feeling
+        defeated
+      optionType: 2
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -16
+      friendshipChange: -17
+    - optionText: Reassess your approach, set new objectives, and persevere with
+        determination
+      optionType: 0
+      traitName: Resilient
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 14
+      friendshipChange: 11
+    - optionText: Accept the setback passively, without making any changes to your
+        plans
+      optionType: 1
+      traitName: Resilient
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You encounter a conflict between friends. How do you mediate
+    options:
+    - optionText: Stay on the sidelines, avoiding involvement
+      optionType: 1
+      traitName: Calm
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Take sides or exacerbate the conflict with inflammatory remarks
+      optionType: 2
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -17
+      friendshipChange: -20
+    - optionText: Act as a neutral mediator, facilitating open communication and
+        finding common ground
+      optionType: 0
+      traitName: Calm
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 11
+  followUpDialogues:
+  - triggerOption: 0
+    dialogues:
+    - text: On that, we can agree
+      options: []
+    - text: I agree!
+      options: []
+    - text: We agree on something!
+      options: []
+  - triggerOption: 1
+    dialogues:
+    - text: Eh
+      options: []
+    - text: I suppose so
+      options: []
+    - text: I can see where you are coming from
+      options: []
+  - triggerOption: 2
+    dialogues:
+    - text: How can you say that?!
+      options: []
+    - text: ...
+      options: []
+    - text: What...
+      options: []
+  isDialogueShowing: 0
+  OnMoralityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFriendshipChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1496750939301304619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c8b885d678f4147bbd28fba3b75f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  followDistance: 2
+  stopRadius: 0.11
+  stopThreshold: 0.06
+  moveSpeed: 1
+--- !u!95 &6922874307937293403
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5293fd3708da44325968b07898eafa17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8673635683548582450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f5c2845053874aaf028be2f5c7630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 
+  m_childID: 
+  m_prefabID: Carlos - Penguin
+  m_autoSetPrefabID: 1
+  m_saveTransform: 1
+--- !u!114 &1614066918086130008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12940150082339558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ddbb4eebd4a4920b39f317c41b2f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasChargeAbility: 0
+  hasMagicAbility: 1
+  chargeSpeedMultiplier: 2
+  magicProjectilePrefab: {fileID: 5995240180693189054, guid: f99fc9aab787a4ea88af22159c1e79f4, type: 3}
+  magicDamage: 20
+--- !u!1001 &620343218001958523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5464052511975851174}
+    m_Modifications:
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929047279258675479, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Name
+      value: Companion Dialogue Canvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+--- !u!114 &296637478989218399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 902471351161066532, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 620343218001958523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &571027119036115416 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 620343218001958523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2849804347580474224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3393303071285163275, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 620343218001958523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &5684129575416255151 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5078357670426969300, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 620343218001958523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6788776956566391329
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5464052511975851174}
+    m_Modifications:
+    - target: {fileID: 2697747512106087546, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_Name
+      value: COMPANION UI CONTROLLER
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1384.5879
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 623.82416
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.3655553
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+--- !u!4 &8628987673656225579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+  m_PrefabInstance: {fileID: 6788776956566391329}
+  m_PrefabAsset: {fileID: 0}

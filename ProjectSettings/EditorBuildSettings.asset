@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game - Choosing Companion.unity
-    guid: 2391b3f62dea0496b81b5c80494778f2
+    path: Assets/Resources/Scenes/Main Menu.unity
+    guid: c0c62a28d4a3f4a72b1a4270a25a32a8
   - enabled: 1
-    path: Assets/Scenes/Game - Part 1.unity
+    path: Assets/Resources/Scenes/Game.unity
+    guid: 53c1c7bd8ed804081b49eb1ee47d5399
+  - enabled: 0
+    path: Assets/Resources/Scenes/Game - Choosing Companion.unity
+    guid: 2391b3f62dea0496b81b5c80494778f2
+  - enabled: 0
+    path: Assets/Resources/Scenes/Saved Game.unity
+    guid: 7ab8ad56b65194f1eb6275fc7afa5d31
+  - enabled: 0
+    path: Assets/Resources/Scenes/Game - Part 1.unity
     guid: 374358b5c129145bca411c7c9fa5cd1f
   m_configObjects: {}

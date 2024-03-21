@@ -1,0 +1,675 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1078978103425443884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8771649742382097973}
+  - component: {fileID: 2922775466757705144}
+  - component: {fileID: 1012645902489427631}
+  - component: {fileID: 2235603799012070899}
+  m_Layer: 0
+  m_Name: Bandit Trigger
+  m_TagString: BanditTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8771649742382097973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078978103425443884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3718229002815867206}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2922775466757705144
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078978103425443884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.73823357}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.739002, y: 0.42834336}
+  m_EdgeRadius: 0
+--- !u!114 &1012645902489427631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078978103425443884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90827e2f706a04aab8ae41744251d6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpUI: {fileID: 1237183641958615784}
+  textMeshProText: {fileID: 3488215514656694977}
+  optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
+  optionButtonParent: {fileID: 8833645793729344049}
+  narrativeSteps:
+  - dialogue: Bandits are blocking the path. How will you approach?
+    options:
+    - option: 3
+      optionText: Attack the Bandits
+      traitEffects:
+      - traitName: Brave
+        applyMoralityChangePositive: 0
+        applyMoralityChangeNegative: 0
+        applyFriendshipChangePositive: 1
+        applyFriendshipChangeNegative: 0
+        moralityChange: 0
+        friendshipChange: 20
+      - traitName: Empathetic
+        applyMoralityChangePositive: 0
+        applyMoralityChangeNegative: 0
+        applyFriendshipChangePositive: 0
+        applyFriendshipChangeNegative: 1
+        moralityChange: 0
+        friendshipChange: -20
+      followUpDialogues:
+      - dialogueLines:
+        - Attack!
+        options: []
+        traitEffects: []
+        hasOptions: 0
+    - option: 1
+      optionText: Talk to the Bandits
+      traitEffects:
+      - traitName: Noble
+        applyMoralityChangePositive: 0
+        applyMoralityChangeNegative: 0
+        applyFriendshipChangePositive: 1
+        applyFriendshipChangeNegative: 0
+        moralityChange: 0
+        friendshipChange: 8
+      - traitName: Compassionate
+        applyMoralityChangePositive: 0
+        applyMoralityChangeNegative: 0
+        applyFriendshipChangePositive: 0
+        applyFriendshipChangeNegative: 1
+        moralityChange: 0
+        friendshipChange: 13
+      - traitName: Calm
+        applyMoralityChangePositive: 0
+        applyMoralityChangeNegative: 0
+        applyFriendshipChangePositive: 0
+        applyFriendshipChangeNegative: 1
+        moralityChange: 0
+        friendshipChange: 12
+      followUpDialogues:
+      - dialogueLines:
+        - What do you want? You are not getting past.
+        options:
+        - option: 3
+          optionText: Fight
+          traitEffects:
+          - traitName: Brave
+            applyMoralityChangePositive: 0
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 1
+            applyFriendshipChangeNegative: 0
+            moralityChange: 0
+            friendshipChange: 13
+          - traitName: Courageous
+            applyMoralityChangePositive: 0
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 1
+            applyFriendshipChangeNegative: 0
+            moralityChange: 0
+            friendshipChange: 9
+          - traitName: Compassionate
+            applyMoralityChangePositive: 0
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 0
+            applyFriendshipChangeNegative: 1
+            moralityChange: 0
+            friendshipChange: -15
+          - traitName: Empathetic
+            applyMoralityChangePositive: 0
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 0
+            applyFriendshipChangeNegative: 1
+            moralityChange: 0
+            friendshipChange: -17
+          followUpDialogues:
+          - dialogueLines:
+            - Let's fight then!
+            options: []
+            traitEffects: []
+            hasOptions: 0
+        - option: 1
+          optionText: I mean no harm, why can't I pass through?
+          traitEffects:
+          - traitName: Noble
+            applyMoralityChangePositive: 1
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 1
+            applyFriendshipChangeNegative: 0
+            moralityChange: 8
+            friendshipChange: 9
+          - traitName: Compassionate
+            applyMoralityChangePositive: 1
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 1
+            applyFriendshipChangeNegative: 0
+            moralityChange: 10
+            friendshipChange: 9
+          - traitName: Calm
+            applyMoralityChangePositive: 1
+            applyMoralityChangeNegative: 0
+            applyFriendshipChangePositive: 1
+            applyFriendshipChangeNegative: 0
+            moralityChange: 12
+            friendshipChange: 11
+          followUpDialogues:
+          - dialogueLines:
+            - Because I said so! These are our parts so you better turn around kid
+            options:
+            - option: 3
+              optionText: Gosh, do they let just anyone join the bandit club, or
+                did you have to prove how useless you are?
+              traitEffects:
+              - traitName: Noble
+                applyMoralityChangePositive: 0
+                applyMoralityChangeNegative: 1
+                applyFriendshipChangePositive: 0
+                applyFriendshipChangeNegative: 1
+                moralityChange: -17
+                friendshipChange: -11
+              - traitName: Compassionate
+                applyMoralityChangePositive: 0
+                applyMoralityChangeNegative: 1
+                applyFriendshipChangePositive: 0
+                applyFriendshipChangeNegative: 1
+                moralityChange: -13
+                friendshipChange: -16
+              - traitName: Mischievous
+                applyMoralityChangePositive: 0
+                applyMoralityChangeNegative: 1
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: -9
+                friendshipChange: 15
+              - traitName: Empathetic
+                applyMoralityChangePositive: 0
+                applyMoralityChangeNegative: 1
+                applyFriendshipChangePositive: 0
+                applyFriendshipChangeNegative: 1
+                moralityChange: -16
+                friendshipChange: -14
+              followUpDialogues:
+              - dialogueLines:
+                - How dare you! Let's see if you are all talk, no bite
+                options: []
+                traitEffects: []
+                hasOptions: 0
+            - option: 2
+              optionText: Come on, we can avoid unnecessary trouble here and we can
+                both go about our day
+              traitEffects:
+              - traitName: Noble
+                applyMoralityChangePositive: 1
+                applyMoralityChangeNegative: 0
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: 9
+                friendshipChange: 8
+              - traitName: Compassionate
+                applyMoralityChangePositive: 1
+                applyMoralityChangeNegative: 0
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: 8
+                friendshipChange: 7
+              - traitName: Empathetic
+                applyMoralityChangePositive: 1
+                applyMoralityChangeNegative: 0
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: 10
+                friendshipChange: 9
+              followUpDialogues:
+              - dialogueLines:
+                - Hmm.. fine just this once, but don't come back!
+                options: []
+                traitEffects: []
+                hasOptions: 0
+            - option: 1
+              optionText: How about I don't turn around, what are you going to do
+                about it?
+              traitEffects:
+              - traitName: Brave
+                applyMoralityChangePositive: 1
+                applyMoralityChangeNegative: 0
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: 7
+                friendshipChange: 5
+              - traitName: Courageous
+                applyMoralityChangePositive: 1
+                applyMoralityChangeNegative: 0
+                applyFriendshipChangePositive: 1
+                applyFriendshipChangeNegative: 0
+                moralityChange: 6
+                friendshipChange: 7
+              followUpDialogues:
+              - dialogueLines:
+                - Don't test us kid...
+                options:
+                - option: 3
+                  optionText: Or what hmm? You're like a discount version of a villain
+                    from a children's book
+                  traitEffects:
+                  - traitName: Mischievous
+                    applyMoralityChangePositive: 0
+                    applyMoralityChangeNegative: 1
+                    applyFriendshipChangePositive: 1
+                    applyFriendshipChangeNegative: 0
+                    moralityChange: -7
+                    friendshipChange: 11
+                  - traitName: Noble
+                    applyMoralityChangePositive: 0
+                    applyMoralityChangeNegative: 1
+                    applyFriendshipChangePositive: 0
+                    applyFriendshipChangeNegative: 1
+                    moralityChange: -11
+                    friendshipChange: -13
+                  - traitName: Graceful
+                    applyMoralityChangePositive: 0
+                    applyMoralityChangeNegative: 1
+                    applyFriendshipChangePositive: 0
+                    applyFriendshipChangeNegative: 1
+                    moralityChange: -11
+                    friendshipChange: -12
+                  - traitName: Empathetic
+                    applyMoralityChangePositive: 0
+                    applyMoralityChangeNegative: 1
+                    applyFriendshipChangePositive: 0
+                    applyFriendshipChangeNegative: 1
+                    moralityChange: -13
+                    friendshipChange: -14
+                  followUpDialogues:
+                  - dialogueLines:
+                    - That is it. Let's show this nuissance what we're made of!
+                    options: []
+                    traitEffects: []
+                    hasOptions: 0
+                - option: 2
+                  optionText: Sorry, I didn't mean to be rude, I really don't want
+                    any trouble
+                  traitEffects:
+                  - traitName: Mischievous
+                    applyMoralityChangePositive: 1
+                    applyMoralityChangeNegative: 0
+                    applyFriendshipChangePositive: 0
+                    applyFriendshipChangeNegative: 1
+                    moralityChange: 12
+                    friendshipChange: -10
+                  - traitName: Noble
+                    applyMoralityChangePositive: 1
+                    applyMoralityChangeNegative: 0
+                    applyFriendshipChangePositive: 1
+                    applyFriendshipChangeNegative: 0
+                    moralityChange: 9
+                    friendshipChange: 7
+                  - traitName: Graceful
+                    applyMoralityChangePositive: 1
+                    applyMoralityChangeNegative: 0
+                    applyFriendshipChangePositive: 1
+                    applyFriendshipChangeNegative: 0
+                    moralityChange: 9
+                    friendshipChange: 8
+                  - traitName: Empathetic
+                    applyMoralityChangePositive: 1
+                    applyMoralityChangeNegative: 0
+                    applyFriendshipChangePositive: 1
+                    applyFriendshipChangeNegative: 0
+                    moralityChange: 10
+                    friendshipChange: 8
+                  followUpDialogues:
+                  - dialogueLines:
+                    - Fine.. we will let you pass just this once, run along then!
+                    options: []
+                    traitEffects: []
+                    hasOptions: 0
+                traitEffects: []
+                hasOptions: 1
+            traitEffects: []
+            hasOptions: 1
+        traitEffects: []
+        hasOptions: 1
+  banditAttackData:
+    options: []
+    dialogues: []
+  companions:
+  - name: Aldric
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 4370312277789965346, guid: 8ce88850037d143c7a157bcc8724a8f5, type: 3}
+    personalityTraits:
+    - name: Brave
+      value: 7
+      affectsMorality: 0
+      affectsFriendship: 1
+    - name: Loyal
+      value: 8
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Noble
+      value: 5
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  - name: Eira
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 1498019609394600563, guid: 4603e0d25e5584cacba93261f2486623, type: 3}
+    personalityTraits:
+    - name: Graceful
+      value: 4
+      affectsMorality: 0
+      affectsFriendship: 1
+    - name: Courageous
+      value: 7
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Compassionate
+      value: 9
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  - name: Luna
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 3616328574175007138, guid: 7cd456e712cd34e26a3d2856923ac5af, type: 3}
+    personalityTraits:
+    - name: Mischievous
+      value: -4
+      affectsMorality: 1
+      affectsFriendship: 0
+    - name: Wise
+      value: 8
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Compassionate
+      value: 9
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  - name: Carlos
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 12940150082339558, guid: 11400b6d4c4ac4ba294b379f07ddbae6, type: 3}
+    personalityTraits:
+    - name: Calm
+      value: 6
+      affectsMorality: 0
+      affectsFriendship: 1
+    - name: Empathetic
+      value: 9
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Resilient
+      value: 7
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  killOptionData:
+    option: 4
+    optionText: Kill the Bandits
+    traitEffects:
+    - traitName: Noble
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -19
+      friendshipChange: -13
+    - traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -20
+      friendshipChange: -22
+    - traitName: Empathetic
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -24
+      friendshipChange: -25
+    followUpDialogues:
+    - dialogueLines:
+      - P-please no...
+      options: []
+      traitEffects: []
+      hasOptions: 0
+  killOptionDialogues:
+  - What will you choose?
+  spareOptionData:
+    option: 5
+    optionText: Spare the Bandits and continue
+    traitEffects:
+    - traitName: Noble
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 16
+    - traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 15
+    - traitName: Empathetic
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 19
+    followUpDialogues:
+    - dialogueLines:
+      - T-thank you...
+      options: []
+      traitEffects: []
+      hasOptions: 0
+  spareOptionDialogues: []
+--- !u!114 &2235603799012070899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078978103425443884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f5c2845053874aaf028be2f5c7630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 
+  m_childID: 
+  m_prefabID: Bandit Trigger
+  m_autoSetPrefabID: 1
+  m_saveTransform: 1
+--- !u!1001 &30974777989565380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8771649742382097973}
+    m_Modifications:
+    - target: {fileID: 1244489463586783532, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757830576630617142, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_Name
+      value: Dialogue Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+--- !u!1 &1237183641958615784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1244489463586783532, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+  m_PrefabInstance: {fileID: 30974777989565380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3488215514656694977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3460641251388221701, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+  m_PrefabInstance: {fileID: 30974777989565380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &3718229002815867206 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3744680377285182082, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+  m_PrefabInstance: {fileID: 30974777989565380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8833645793729344049 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8861220869214370293, guid: 6d7402e29c6314924b50bfa8ffa5622a, type: 3}
+  m_PrefabInstance: {fileID: 30974777989565380}
+  m_PrefabAsset: {fileID: 0}

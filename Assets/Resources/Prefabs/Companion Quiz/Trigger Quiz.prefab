@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5376896640255563057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7133135073315198331}
+  - component: {fileID: 6768211619044415242}
+  - component: {fileID: 2937708918613307420}
+  - component: {fileID: 8629292462603759620}
+  m_Layer: 0
+  m_Name: Trigger Quiz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7133135073315198331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376896640255563057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.492, y: 0.395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6768211619044415242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376896640255563057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3a8f63ab4234c478f46264248048d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 0}
+  dialogueBoxImage: {fileID: 0}
+  optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
+  optionButtonParent: {fileID: 0}
+  initialDialogueOptions:
+  - optionText: Yes
+    optionType: 2
+    traitName: 
+  - optionText: No
+    optionType: 3
+    traitName: 
+  questions:
+  - questionText: 'When faced with an ominous cave entrance, you:'
+    options:
+    - optionText: 'Go into the unknown with courage, venturing into the darkness
+        with determination and resolve '
+      optionType: 0
+      traitName: Brave
+    - optionText: Approach it with caution, carefully assessing potential dangers
+        and planning your next steps
+      optionType: 0
+      traitName: Wise
+    - optionText: Keep your composure, while preparing to explore the cave cautiously
+      optionType: 0
+      traitName: Calm
+  - questionText: 'While observing a lost child wandering the streets, you:'
+    options:
+    - optionText: Feel a deep sense of compassion towards the child's plight, wanting
+        to help them find their way to safety
+      optionType: 0
+      traitName: Compassionate
+    - optionText: 'Approach the child gently, offering reassurance and guidance with
+        empathy and understanding '
+      optionType: 0
+      traitName: Empathetic
+    - optionText: Stay by the child's side, ensuring they are reunited with their
+        family or caregivers
+      optionType: 0
+      traitName: Loyal
+  - questionText: 'Upon discovering an ancient artifact, your first instinct is to:'
+    options:
+    - optionText: Treat it with reverence and respect, recognising its historical
+        significance and cultural value
+      optionType: 0
+      traitName: Noble
+    - optionText: Analyse it with curiosity, seeking to uncover its secrets and understand
+        its place in history
+      optionType: 0
+      traitName: Mischievous
+    - optionText: Approach it with caution, considering the potential implications
+        of its discovery
+      optionType: 0
+      traitName: Wise
+  - questionText: 'While navigating through a dense forest, you:  '
+    options:
+    - optionText: Forge ahead, facing the unknown with determination
+      optionType: 0
+      traitName: Brave
+    - optionText: Move through the terrain, conserving energy and moving with purpose
+      optionType: 0
+      traitName: Graceful
+    - optionText: Utilise your mind to navigate effectively, making informed decisions
+        to ensure your safety
+      optionType: 0
+      traitName: Wise
+  - questionText: 'In the midst of a heated argument, your approach is to:'
+    options:
+    - optionText: Keep your cool, maintaining a level-headed perspective and seeking
+        peaceful resolution
+      optionType: 0
+      traitName: Calm
+    - optionText: Show empathy towards all parties involved, understanding their
+        viewpoints and working towards mutual understanding
+      optionType: 0
+      traitName: Empathetic
+    - optionText: Stand your ground courageously, expressing your beliefs firmly
+        yet respectfully
+      optionType: 0
+      traitName: Courageous
+  - questionText: 'When facing a sudden setback, your reaction is to:'
+    options:
+    - optionText: Maintain a calm demeanor, assessing the situation rationally and
+        formulating a plan to overcome the setback
+      optionType: 0
+      traitName: Calm
+    - optionText: 'Draw upon your inner strength, bouncing back from adversity with
+        determination '
+      optionType: 0
+      traitName: Resilient
+    - optionText: Confront the setback, refusing to be deterred by temporary obstacles
+      optionType: 0
+      traitName: Brave
+  - questionText: 'Confronted with a difficult decision, you:'
+    options:
+    - optionText: Approach it with careful consideration, weighing the consequences
+        and seeking the best outcome
+      optionType: 0
+      traitName: Noble
+    - optionText: Act with integrity, making choices that align with your principles
+        and values
+      optionType: 0
+      traitName: Courageous
+    - optionText: Trust in your wisdom, making decisions based on deep understanding
+        and discernment
+      optionType: 0
+      traitName: Wise
+  - questionText: 'When witnessing an act of kindness, you:'
+    options:
+    - optionText: Feel the emotions from both the giver and receiver, understanding
+        the emotions involved
+      optionType: 0
+      traitName: Empathetic
+    - optionText: Express genuine gratitude, acknowledging the kindness with sincerity
+      optionType: 0
+      traitName: Graceful
+    - optionText: Feel inspired to emulate the kindness, demonstrating loyalty to
+        the principle of goodwill
+      optionType: 0
+      traitName: Loyalty
+  - questionText: 'Amidst a challenging situation, your instinct is to:'
+    options:
+    - optionText: Persist, refusing to give up despite obstacles and setbacks
+      optionType: 0
+      traitName: Resilient
+    - optionText: Analyse the circumstances carefully, drawing upon your wisdom to
+        formulate a strategic approach
+      optionType: 0
+      traitName: Wise
+    - optionText: Confront it head-on, drawing upon your inner courage to tackle
+        the challenge with determination
+      optionType: 0
+      traitName: Brave
+  - questionText: 'When confronted with someone in distress, you:'
+    options:
+    - optionText: 'Offer an ear, actively listening to their concerns and providing
+        comfort '
+      optionType: 0
+      traitName: Compassionate
+    - optionText: Stay composed, assessing the situation calmly and offering practical
+        assistance
+      optionType: 0
+      traitName: Calm
+    - optionText: 'Step forward, taking decisive action to alleviate their distress
+        and resolve the situation '
+      optionType: 0
+      traitName: Courageous
+  - questionText: 'In the face of success, you:'
+    options:
+    - optionText: Reflect on the journey, acknowledging the contributions of others
+        and feeling a sense of fulfillment
+      optionType: 0
+      traitName: Noble
+    - optionText: Humbly accept the achievement, recognising that success is fleeting
+        and there is always room for improvement
+      optionType: 0
+      traitName: Graceful
+    - optionText: Celebrate with moderation, showing appreciation for the accomplishment
+        while staying grounded
+      optionType: 0
+      traitName: Calm
+  followUpDialogues: []
+--- !u!61 &2937708918613307420
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376896640255563057}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0069669187, y: 0.018522933}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27079308, y: 0.33600172}
+  m_EdgeRadius: 0
+--- !u!114 &8629292462603759620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376896640255563057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f5c2845053874aaf028be2f5c7630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 056666c8-75cb-45f7-9b6f-f9025d84715c
+  m_childID: 
+  m_prefabID: Trigger Quiz
+  m_autoSetPrefabID: 1
+  m_saveTransform: 1

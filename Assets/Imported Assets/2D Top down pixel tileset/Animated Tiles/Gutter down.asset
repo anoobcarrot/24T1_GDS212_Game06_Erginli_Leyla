@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4282877d302834e9cd686a57dd3591, type: 3}
+  m_Name: Gutter down
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -1228707592091201681, guid: e2cf2449e31e1384a9e0b355c6d61c2f, type: 3}
+  - {fileID: -3700611206211919405, guid: e2cf2449e31e1384a9e0b355c6d61c2f, type: 3}
+  - {fileID: -6614621004071481789, guid: e2cf2449e31e1384a9e0b355c6d61c2f, type: 3}
+  - {fileID: 7429313976698693464, guid: e2cf2449e31e1384a9e0b355c6d61c2f, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

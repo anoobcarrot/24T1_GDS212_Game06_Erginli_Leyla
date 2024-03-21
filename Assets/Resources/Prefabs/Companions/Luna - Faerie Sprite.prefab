@@ -1,0 +1,840 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3616328574175007138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2978452355818667910}
+  - component: {fileID: 6098297875776605292}
+  - component: {fileID: 1822394090024107620}
+  - component: {fileID: 1830541629936865690}
+  - component: {fileID: 5335846189988177393}
+  - component: {fileID: 1147053884497447907}
+  - component: {fileID: 5948708830028725672}
+  m_Layer: 0
+  m_Name: Luna - Faerie Sprite
+  m_TagString: Companion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2978452355818667910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4545386617141633452}
+  - {fileID: 4410100585081462482}
+  - {fileID: 2698801853481847452}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6098297875776605292
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 344163123, guid: 31d35726d65074671bd00f124ea938e4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1822394090024107620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdda017b54ef34c13b24d58e9d40e5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companion:
+    name: Luna
+    morality: 20
+    friendship: 20
+    gameObject: {fileID: 3616328574175007138}
+    personalityTraits:
+    - name: Mischievous
+      value: -4
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Wise
+      value: 8
+      affectsMorality: 1
+      affectsFriendship: 1
+    - name: Compassionate
+      value: 9
+      affectsMorality: 1
+      affectsFriendship: 1
+    dialogues: []
+  dialogueText: {fileID: 4387941033832466987}
+  dialogueBoxImage: {fileID: 2266523221860576004}
+  optionButtonPrefab: {fileID: 8037343059733800370, guid: 26777000ccb034cfaa9cf6bf4dbdb0f4, type: 3}
+  optionButtonParent: {fileID: 8510345977712073435}
+  dialogues:
+  - text: Your friend is about to take a bite of dessert, but you notice it has a
+      small insect on it. What do you do?
+    options:
+    - optionText: Alert your friend discreetly so they don't eat it
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 15
+      friendshipChange: -7
+    - optionText: Laugh and point out the insect, embarrassing your friend
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -11
+      friendshipChange: 16
+    - optionText: Ignore the insect and say nothing
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: -12
+      friendshipChange: 0
+  - text: Your friend seeks your advice on handling a conflict with someone. What
+      do you suggest?
+    options:
+    - optionText: Encourage open communication and empathy to resolve the conflict
+        peacefully
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 11
+      friendshipChange: 9
+    - optionText: Suggest retaliation and avoidance without considering the consequences
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -15
+      friendshipChange: -11
+    - optionText: Offer various options without taking a stance
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 2
+  - text: You come across a stray animal in need of help. What is your response?
+    options:
+    - optionText: Acknowledge the situation, offer it food and continue on your way
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Ignote it and leave it to fend for itself
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -25
+      friendshipChange: -21
+    - optionText: Take the time to assist the animal and find it proper care
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 7
+      friendshipChange: 9
+  - text: Your friend receives a gift that they adore. What do you do?
+    options:
+    - optionText: Express jealousy, dimishing their happiness
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -8
+      friendshipChange: 14
+    - optionText: Acknowledge the gift but don't offer much enthusiasm
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 5
+    - optionText: Express genuine happiness for them
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 13
+      friendshipChange: -11
+  - text: A friend seeks your opinion on a risky decision they want to make. How
+      do you respond?
+    options:
+    - optionText: Offer thoughtful advice for making an informed choice
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 11
+    - optionText: Discourage them without offering any reasoning
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -18
+      friendshipChange: -13
+    - optionText: Remain impartial, leaving the decision up to them
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You witness someone in distress on the street. What action do you take?
+    options:
+    - optionText: Ignore them and continue on your way
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -21
+    - optionText: Approach them and offer assiatnce, giving them the help they need
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 13
+      friendshipChange: 11
+    - optionText: Feel concern but hesitate to intervene directly
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -13
+  - text: Your friend is preparing for an important event and asks for your opinion
+      on their outfit. How do you respond?
+    options:
+    - optionText: Offer feedback to help them look their best
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 13
+      friendshipChange: -12
+    - optionText: Give a non-committal response to avoid conflict
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+    - optionText: Critisise their choice, possibly causing insecurity
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -13
+      friendshipChange: 16
+  - text: A friend is considering quitting their job abruptly due to frustration.
+      How do you advise them?
+    options:
+    - optionText: Encourage them to explore their options carefully and consider
+        the long-term consequences
+      optionType: 0
+      traitName: Wise
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 9
+      friendshipChange: 7
+    - optionText: Push them to quit impulsively without weighing the repercussions
+      optionType: 2
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: -18
+      friendshipChange: 0
+    - optionText: Listen to them but refrain from offering advice
+      optionType: 1
+      traitName: Wise
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 0
+      moralityChange: 0
+      friendshipChange: 0
+  - text: You notice a classmate struggling with their studies. How do you respond?
+    options:
+    - optionText: Ignore their struggles or mock them, worsening the situation
+      optionType: 2
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: -17
+      friendshipChange: -21
+    - optionText: Offer to tutor them or provide assistance
+      optionType: 0
+      traitName: Compassionate
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: 8
+      friendshipChange: 14
+    - optionText: Feel sympathy but don't intervene, they'll manage on their own
+      optionType: 1
+      traitName: Compassionate
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -12
+  - text: Your friend shares a secret with you. How do you handle this information?
+    options:
+    - optionText: Keep the secret but without much consideration os its significance
+      optionType: 1
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 0
+      friendshipChange: -5
+    - optionText: Respect their trust and keep the secret confidential
+      optionType: 2
+      traitName: Mischievous
+      applyMoralityChangePositive: 1
+      applyMoralityChangeNegative: 0
+      applyFriendshipChangePositive: 0
+      applyFriendshipChangeNegative: 1
+      moralityChange: 14
+      friendshipChange: -9
+    - optionText: Betray their trust by spreading the secret to others
+      optionType: 0
+      traitName: Mischievous
+      applyMoralityChangePositive: 0
+      applyMoralityChangeNegative: 1
+      applyFriendshipChangePositive: 1
+      applyFriendshipChangeNegative: 0
+      moralityChange: -14
+      friendshipChange: 13
+  followUpDialogues:
+  - triggerOption: 0
+    dialogues:
+    - text: On that, we can agree
+      options: []
+    - text: I agree!
+      options: []
+    - text: We agree on something!
+      options: []
+  - triggerOption: 1
+    dialogues:
+    - text: Eh
+      options: []
+    - text: I suppose so
+      options: []
+    - text: I can see where you are coming from
+      options: []
+  - triggerOption: 2
+    dialogues:
+    - text: How can you say that?!
+      options: []
+    - text: ...
+      options: []
+    - text: What...
+      options: []
+  isDialogueShowing: 0
+  OnMoralityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFriendshipChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1830541629936865690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c8b885d678f4147bbd28fba3b75f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  followDistance: 2
+  stopRadius: 0.11
+  stopThreshold: 0.06
+  moveSpeed: 1
+--- !u!95 &5335846189988177393
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2db7227daf51453ebbe9637d3c533f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1147053884497447907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f5c2845053874aaf028be2f5c7630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 
+  m_childID: 
+  m_prefabID: Luna - Faerie Sprite
+  m_autoSetPrefabID: 1
+  m_saveTransform: 1
+--- !u!114 &5948708830028725672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616328574175007138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ddbb4eebd4a4920b39f317c41b2f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasChargeAbility: 0
+  hasMagicAbility: 0
+  chargeSpeedMultiplier: 2
+  magicProjectilePrefab: {fileID: 1071127542026021696, guid: 73c0f654b02834a9baa1e122b9193ad3, type: 3}
+  magicDamage: 20
+--- !u!1 &8193184932939479270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2698801853481847452}
+  - component: {fileID: 7862447170426415488}
+  - component: {fileID: 8659739556474674315}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2698801853481847452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193184932939479270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -0.1, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2978452355818667910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &7862447170426415488
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193184932939479270}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.67660195, g: 0.9150943, b: 0.3927999, a: 1}
+  m_Intensity: 0.3
+  m_Range: 0.7
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &8659739556474674315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193184932939479270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!1001 &1496625693477993432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2978452355818667910}
+    m_Modifications:
+    - target: {fileID: 2697747512106087546, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_Name
+      value: COMPANION UI CONTROLLER
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1384.5879
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 623.82416
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.3655553
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+--- !u!4 &4410100585081462482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+  m_PrefabInstance: {fileID: 1496625693477993432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3486667879797874191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2978452355818667910}
+    m_Modifications:
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929047279258675479, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+      propertyPath: m_Name
+      value: Companion Dialogue Canvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+--- !u!114 &2266523221860576004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3393303071285163275, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 3486667879797874191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4387941033832466987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 902471351161066532, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 3486667879797874191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &4545386617141633452 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1114452878679310243, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 3486667879797874191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8510345977712073435 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5078357670426969300, guid: 8a571c1139fac4444b1942c7faf6494b, type: 3}
+  m_PrefabInstance: {fileID: 3486667879797874191}
+  m_PrefabAsset: {fileID: 0}
