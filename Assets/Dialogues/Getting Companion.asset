@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446ca2583752e9d4d887e78137bed050, type: 3}
+  m_Name: Getting Companion
+  m_EditorClassIdentifier: 
+  lines:
+  - speakerName: Zoran
+    text: Hey there!
+    choices: {fileID: 0}
+  - speakerName: Zoran
+    text: You must be here to finally get your companion!
+    choices: {fileID: 0}
+  - speakerName: Zoran
+    text: Isn't that exciting, eh?
+    choices: {fileID: 0}
+  - speakerName: Zoran
+    text: Just head on over to the table to the right to get started.
+    choices: {fileID: 0}
+  - speakerName: Zoran
+    text: It will be diving into your mind to see what companion is the right fit
+      for you.
+    choices: {fileID: 0}
+  - speakerName: Zoran
+    text: What are you waiting for? Go on!
+    choices: {fileID: 0}

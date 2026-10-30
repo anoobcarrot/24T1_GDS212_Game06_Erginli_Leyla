@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446ca2583752e9d4d887e78137bed050, type: 3}
+  m_Name: Intro DIalogue
+  m_EditorClassIdentifier: 
+  lines:
+  - speakerName: Arabella
+    text: Greetings Traveller!
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: You must be here to finally get your companion!
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Before you do so, let me tell you a bit of information that will be helpful
+      to you.
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Your companion will always try to bond with you to be closer united!
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Once you get your companion, you can press [TAB] to view your bond.
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Careful venturing out there though. Celestria isn't safe like it once was.
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: If you are in trouble, you can press [SPACE] to attack enemies!
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Companions will also help you defeat enemies and will always be there for
+      you.
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Now about getting your companion! Head on over in the little house straight
+      ahead [RIGHT CLICK} to open the door.
+    choices: {fileID: 0}
+  - speakerName: Arabella
+    text: Good luck out there!
+    choices: {fileID: 0}
