@@ -1,72 +1,104 @@
-// From my Game A Week 5 Game Studio 2 Game
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
-    public Slider volumeSlider; // Reference to the volume slider in the Inspector
+    [Header("Volume Settings")]
+    public Slider volumeSlider;
 
-    void Start()
+    private const string VolumeKey = "Volume";
+    private const float DefaultVolume = 1f;
+
+    // Shared between all VolumeControl instances in every scene.
+    private static float sharedVolume;
+    private static bool volumeInitialized = false;
+
+    private void Awake()
     {
-        LoadVolumeSettings();
+        InitializeVolume();
+        UpdateSlider();
     }
 
-    void LoadVolumeSettings()
+    private void OnEnable()
     {
-        // Load volume settings from PlayerPrefs if available
-        if (PlayerPrefs.HasKey("Volume"))
+        InitializeVolume();
+        UpdateSlider();
+    }
+
+    private void Start()
+    {
+        UpdateSlider();
+    }
+
+    private static void InitializeVolume()
+    {
+        if (!volumeInitialized)
         {
-            float savedVolume = PlayerPrefs.GetFloat("Volume");
-            SetVolume(savedVolume);
+            sharedVolume = Mathf.Clamp01(
+                PlayerPrefs.GetFloat(VolumeKey, DefaultVolume)
+            );
+
+            volumeInitialized = true;
         }
 
-        // Load slider position
-        if (volumeSlider != null && PlayerPrefs.HasKey("SliderValue"))
+        AudioListener.volume = sharedVolume;
+    }
+
+    private void UpdateSlider()
+    {
+        if (volumeSlider != null)
         {
-            float savedSliderValue = PlayerPrefs.GetFloat("SliderValue");
-            volumeSlider.value = savedSliderValue;
-            SetVolume(savedSliderValue); // Set the volume based on the loaded slider value
-        }
-    }
-
-    void SaveVolumeSettings(float volume)
-    {
-        // Save volume setting
-        PlayerPrefs.SetFloat("Volume", volume);
-        PlayerPrefs.SetFloat("SliderValue", volumeSlider.value);
-        PlayerPrefs.Save();
-    }
-
-    void OnApplicationQuit()
-    {
-        SaveVolumeSettings(volumeSlider.value);
-    }
-
-    void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            SaveVolumeSettings(volumeSlider.value);
+            volumeSlider.SetValueWithoutNotify(sharedVolume);
         }
     }
 
     public void SetVolume(float volume)
     {
         volume = Mathf.Clamp01(volume);
-        AudioListener.volume = volume; // Adjust global volume
+
+        // Update shared volume.
+        sharedVolume = volume;
+
+        // Apply global volume.
+        AudioListener.volume = sharedVolume;
+
+        // Save shared volume.
+        PlayerPrefs.SetFloat(VolumeKey, sharedVolume);
+        PlayerPrefs.Save();
+
+        // Synchronize every active volume slider.
+        VolumeControl[] volumeControls =
+            FindObjectsOfType<VolumeControl>(true);
+
+        foreach (VolumeControl control in volumeControls)
+        {
+            control.UpdateSlider();
+        }
+
+        Debug.Log(
+            "[VolumeControl] Shared volume updated: " +
+            sharedVolume
+        );
     }
 
-    // Method to handle volume change event from the slider
     public void OnVolumeChanged()
     {
         if (volumeSlider != null)
         {
             SetVolume(volumeSlider.value);
-            SaveVolumeSettings(volumeSlider.value);
         }
-        else
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
         {
-            Debug.LogWarning("Volume slider is not assigned.");
+            PlayerPrefs.Save();
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.Save();
     }
 }
