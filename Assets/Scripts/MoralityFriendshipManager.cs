@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,131 +39,273 @@ public class Companion
     }
 }
 
-public class MoralityFriendshipManager : MonoBehaviour
+public class MoralityFriendshipManager : MonoBehaviour, ISaveable
 {
     public static MoralityFriendshipManager instance;
 
-    // List to store companions
     public List<Companion> companions = new List<Companion>();
 
-    void Awake()
+    [Serializable]
+    private class CompanionStatsSaveData
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
+        public string name;
+        public int morality;
+        public int friendship;
+    }
+
+    [Serializable]
+    private class MoralityFriendshipSaveData
+    {
+        public List<CompanionStatsSaveData> companions =
+            new List<CompanionStatsSaveData>();
+    }
+
+    private Dictionary<string, CompanionStatsSaveData> pendingLoadedStats;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    public void AddCompanion(
+        string name,
+        GameObject companionObject,
+        PersonalityTrait[] personalityTraits,
+        List<Dialogue> dialogues)
     {
-        // Loop through companions and log their morality and friendship values
-        foreach (Companion companion in companions)
+        // Prevent duplicate companions after scene loading.
+        Companion existing = companions.Find(c => c.name == name);
+
+        if (existing != null)
         {
-            // Debug.Log("Current morality value for " + companion.name + ": " + companion.morality);
-            // Debug.Log("Current friendship value for " + companion.name + ": " + companion.friendship);
+            existing.gameObject = companionObject;
+            existing.personalityTraits = personalityTraits;
+            existing.dialogues = dialogues;
+
+            ApplyLoadedStats(existing);
+            UpdateCompanionDisplay(existing);
+            return;
         }
-    }
 
-    // Method to add a new companion
-    public void AddCompanion(string name, GameObject gameObject, PersonalityTrait[] personalityTraits, List<Dialogue> dialogues)
-    {
-        // Create a new companion object
-        Companion newCompanion = new Companion(name, gameObject, personalityTraits, dialogues);
+        Companion newCompanion = new Companion(
+            name,
+            companionObject,
+            personalityTraits,
+            dialogues
+        );
 
-        // Add the companion to the list
         companions.Add(newCompanion);
+
+        ApplyLoadedStats(newCompanion);
+        UpdateCompanionDisplay(newCompanion);
     }
 
-    // Method to modify morality for a specific companion with consideration of the trait name
-    public void ModifyMorality(string companionName, int amount, string traitName)
+    public void ModifyMorality(
+        string companionName,
+        int amount,
+        string traitName)
     {
-        Companion companion = companions.Find(comp => comp.name == companionName);
+        Companion companion = companions.Find(
+            c => c.name == companionName
+        );
 
-        if (companion != null)
-        {
-            PersonalityTrait trait = Array.Find(companion.personalityTraits, t => t.name == traitName);
-            if (trait != null && trait.affectsMorality)
-            {
-                int traitValue = trait.value;
-                companion.morality = Mathf.Clamp(companion.morality + amount + traitValue, 0, 100);
-                Debug.Log("Morality change for " + companionName + " with trait " + traitName + ": " + amount);
-                Debug.Log("New morality value for " + companionName + ": " + companion.morality);
-
-                // Update morality and friendship values in the CompanionDialogue script
-                companion.gameObject.GetComponent<CompanionDialogue>().UpdateMoralityFriendship(companion.morality, companion.friendship);
-            }
-            else
-            {
-                Debug.LogError("Trait not found or does not affect morality: " + traitName);
-            }
-        }
-        else
+        if (companion == null)
         {
             Debug.LogError("Companion not found: " + companionName);
+            return;
         }
+
+        PersonalityTrait trait = Array.Find(
+            companion.personalityTraits,
+            t => t.name == traitName
+        );
+
+        if (trait == null || !trait.affectsMorality)
+        {
+            Debug.LogError(
+                "Trait not found or does not affect morality: " + traitName
+            );
+            return;
+        }
+
+        companion.morality = Mathf.Clamp(
+            companion.morality + amount + trait.value,
+            0,
+            100
+        );
+
+        Debug.Log(
+            companionName + " morality: " + companion.morality
+        );
+
+        UpdateCompanionDisplay(companion);
     }
 
-    // Method to modify friendship for a specific companion with consideration of the trait name
-    public void ModifyFriendship(string companionName, int amount, string traitName)
+    public void ModifyFriendship(
+        string companionName,
+        int amount,
+        string traitName)
     {
-        Companion companion = companions.Find(comp => comp.name == companionName);
+        Companion companion = companions.Find(
+            c => c.name == companionName
+        );
 
-        if (companion != null)
-        {
-            PersonalityTrait trait = Array.Find(companion.personalityTraits, t => t.name == traitName);
-            if (trait != null && trait.affectsFriendship)
-            {
-                int traitValue = trait.value;
-                companion.friendship = Mathf.Clamp(companion.friendship + amount + traitValue, 0, 100);
-                Debug.Log("Friendship change for " + companionName + " with trait " + traitName + ": " + amount);
-                Debug.Log("New friendship value for " + companionName + ": " + companion.friendship);
-
-                // Update morality and friendship values in the CompanionDialogue script
-                companion.gameObject.GetComponent<CompanionDialogue>().UpdateMoralityFriendship(companion.morality, companion.friendship);
-            }
-            else
-            {
-                Debug.LogError("Trait not found or does not affect friendship: " + traitName);
-            }
-        }
-        else
+        if (companion == null)
         {
             Debug.LogError("Companion not found: " + companionName);
+            return;
         }
+
+        PersonalityTrait trait = Array.Find(
+            companion.personalityTraits,
+            t => t.name == traitName
+        );
+
+        if (trait == null || !trait.affectsFriendship)
+        {
+            Debug.LogError(
+                "Trait not found or does not affect friendship: " + traitName
+            );
+            return;
+        }
+
+        companion.friendship = Mathf.Clamp(
+            companion.friendship + amount + trait.value,
+            0,
+            100
+        );
+
+        Debug.Log(
+            companionName + " friendship: " + companion.friendship
+        );
+
+        UpdateCompanionDisplay(companion);
     }
 
-    // Method to get the morality and friendship values for a specific companion
     public (int, int) GetMoralityAndFriendship(string companionName)
     {
-        Companion companion = companions.Find(comp => comp.name == companionName);
+        Companion companion = companions.Find(
+            c => c.name == companionName
+        );
+
         if (companion != null)
         {
             return (companion.morality, companion.friendship);
         }
-        else
+
+        Debug.LogError("Companion not found: " + companionName);
+        return (0, 0);
+    }
+
+    private void UpdateCompanionDisplay(Companion companion)
+    {
+        if (companion.gameObject == null)
+            return;
+
+        CompanionDialogue dialogue =
+            companion.gameObject.GetComponent<CompanionDialogue>();
+
+        if (dialogue != null)
         {
-            Debug.LogError("Companion not found: " + companionName);
-            return (0, 0);
+            dialogue.UpdateMoralityFriendship(
+                companion.morality,
+                companion.friendship
+            );
         }
     }
 
-    // Calculate the overall value of personality traits
-    private int CalculateTraitValue(PersonalityTrait[] traits)
+    private void ApplyLoadedStats(Companion companion)
     {
-        int totalValue = 0;
-        foreach (PersonalityTrait trait in traits)
+        if (pendingLoadedStats == null)
+            return;
+
+        if (pendingLoadedStats.TryGetValue(
+            companion.name,
+            out CompanionStatsSaveData stats))
         {
-            totalValue += trait.value;
+            companion.morality = stats.morality;
+            companion.friendship = stats.friendship;
+
+            UpdateCompanionDisplay(companion);
         }
-        return totalValue;
+    }
+
+    // ======================================
+    // SAVE SYSTEM
+    // ======================================
+
+    public bool NeedsToBeSaved()
+    {
+        return true;
+    }
+
+    public bool NeedsReinstantiation()
+    {
+        return false;
+    }
+
+    public object SaveState()
+    {
+        MoralityFriendshipSaveData data =
+            new MoralityFriendshipSaveData();
+
+        foreach (Companion companion in companions)
+        {
+            data.companions.Add(new CompanionStatsSaveData
+            {
+                name = companion.name,
+                morality = companion.morality,
+                friendship = companion.friendship
+            });
+        }
+
+        Debug.Log("Morality and friendship saved!");
+
+        return data;
+    }
+
+    public void LoadState(object state)
+    {
+        MoralityFriendshipSaveData data =
+            state as MoralityFriendshipSaveData;
+
+        if (data == null)
+            return;
+
+        pendingLoadedStats =
+            new Dictionary<string, CompanionStatsSaveData>();
+
+        foreach (CompanionStatsSaveData stats in data.companions)
+        {
+            pendingLoadedStats[stats.name] = stats;
+        }
+
+        foreach (Companion companion in companions)
+        {
+            ApplyLoadedStats(companion);
+        }
+
+        Debug.Log("Morality and friendship loaded!");
+    }
+
+    public void PostInstantiation(object state)
+    {
+        foreach (Companion companion in companions)
+        {
+            ApplyLoadedStats(companion);
+        }
+    }
+
+    public void GotAddedAsChild(
+        GameObject obj,
+        GameObject hisParent)
+    {
     }
 }
-
-
-
-

@@ -736,10 +736,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2697747512106087546, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4079418644833405525}
   m_SourcePrefab: {fileID: 100100000, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
 --- !u!4 &4656695179153704490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3023822170640852234, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
   m_PrefabInstance: {fileID: 7595639258757767968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5483540156915013466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2697747512106087546, guid: 6a3b82a5b724740d6b26f4f0f61d897b, type: 3}
+  m_PrefabInstance: {fileID: 7595639258757767968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4079418644833405525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5483540156915013466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f5c2845053874aaf028be2f5c7630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 
+  m_childID: 
+  m_prefabID: COMPANION UI CONTROLLER
+  m_autoSetPrefabID: 1
+  m_saveTransform: 1
